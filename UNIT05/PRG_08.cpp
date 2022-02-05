@@ -21,11 +21,18 @@ class List{
 		{
 			head=NULL;
 		}
+		void Insert(int x);
 		void Delete(int x);
 		void Search(int x);
 		void Display();
 		void Length();
 };
+/*Functions**/
+/****************************************************************/
+void List :: Insert(int x){
+	 
+}//End of insert
+/****************************************************************/
 
 /*main menu*/
 int main(){
@@ -34,7 +41,7 @@ int main(){
 	
 	while(1){
 		system("cls");
-		cout<<"====== Singly Linked List ======"<<endl<<endl;
+		cout<<"***** Singly Linked List *****"<<endl<<endl;
 		cout<<"1. Insert in the node"<<endl;
 		cout<<"2. Delete a node "<<endl;
 		cout<<"3. Search for a node "<<endl;
@@ -47,7 +54,9 @@ int main(){
 		cin>>ch;
 		switch(ch){
 			case 1:
-				cout<<"option 1";
+				cout<<"Enter a number:";
+				cin>>num;
+				s.Insert(num);
 				getch();
 				break;
 			case 2:
@@ -56,7 +65,7 @@ int main(){
 				break;
 			
 			case 3:
-				cout<<"option 3";
+				cout<<"option 4";
 				getch();
 				break;
 			case 4:
@@ -68,6 +77,11 @@ int main(){
 				getch();
 				break;
 			case 6:
+				exit(1);
+			default:
+				cout<<"Incorrect choice";
+				getch();
+				break;
 		}//end of switch
 	}//end of while
 }//end of main
