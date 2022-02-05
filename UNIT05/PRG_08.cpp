@@ -30,7 +30,25 @@ class List{
 /*Functions**/
 /****************************************************************/
 void List :: Insert(int x){
+	 //create a new node
+	 Node *t=new Node();
+	 t->data=x;
+	 t->next=NULL;
 	 
+	 //First node in the list
+	 if (head==NULL){
+	 	head=t;
+	 	return;
+	 }
+	 //traverse to the end of the list
+	 Node *tmp=head;
+	 Node *prev=NULL;
+	 while(tmp != NULL){
+	 	prev=tmp;
+	 	tmp=tmp->next;
+	 }
+	 //Link new node t to the last node in the list
+	 prev->next=t;
 }//End of insert
 /****************************************************************/
 
