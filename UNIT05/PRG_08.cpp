@@ -54,7 +54,7 @@ int main(){
 		cin>>ch;
 		switch(ch){
 			case 1:
-				cout<<"Enter a number:";
+				cout<<"Enter a number :";
 				cin>>num;
 				s.Insert(num);
 				getch();
