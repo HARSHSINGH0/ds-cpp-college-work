@@ -51,6 +51,87 @@ void List :: Insert(int x){
 	 prev->next=t;
 }//End of insert
 /****************************************************************/
+void List::Display(){
+	Node *tmp=head;
+	while(tmp!=NULL){
+		cout<<tmp->data<<"->";
+		tmp=tmp->next;
+	}
+	cout<<"NULL";
+}//end of Display
+
+void List::Length(){
+	Node *tmp=head;
+	int cnt=0;
+	while(tmp!=NULL){
+		cnt++;
+		tmp=tmp->next;
+	}
+	cout<<"Length of the list:"<<cnt;
+}//end of Length
+
+void List::Search(int x){
+	Node *tmp=head;
+	int flag=0;
+	while(tmp->data==x){
+		if(tmp->data==x){
+			flag=1;
+			break;
+		}
+		tmp=tmp->next;
+	}
+	if(flag==1){
+		cout<<x<<" is found";
+	}
+	else{
+		cout<<x<<" is not found";
+	}
+}//end of search
+
+void List::Delete(int x){
+	//Step 1: Empty List Return Control
+	if (head==NULL){
+		cout<<"List is  Empty";
+		return;
+	}
+	//Step 2: Find x in the list
+	Node *tmp=head;
+	Node *prev=NULL;
+	int flag=0;
+	while(tmp!=NULL){
+		if(tmp->data==x){
+			flag=1;
+			break;
+		}
+		prev=tmp;
+		tmp=tmp->next;
+	}
+	//Step 3:x is not found-Return Control
+	if(flag==0){
+		cout<<x<<" is not found";
+		return;
+	}
+	//Step 4:x is found
+	//Step 4a:Single Node deletion
+	if(tmp==head && tmp->next==NULL){
+		head=NULL;
+	}
+	else if(tmp==head)//Step4b: Head Node Deletion
+	{
+		head=head->next;
+	}
+	else if(tmp->next==NULL)//Step 4c: Tail Node Deletion
+	{
+		prev->next=NULL;
+	}
+	else{//Step4d:Any other node in the middle
+		prev->next=tmp->next;
+	}
+	//Step 5
+	delete tmp;
+}//end of Delete
+
+
 
 /*main menu*/
 int main(){
@@ -83,15 +164,18 @@ int main(){
 				break;
 			
 			case 3:
-				cout<<"option 4";
+				cout<<"Enter a number:";
+				cin>>num;
+				s.Search(num);
 				getch();
 				break;
 			case 4:
-				cout<<"option 4";
+				s.Display();
+				
 				getch();
 				break;
 			case 5:
-				cout<<"option 5";
+				s.Length();
 				getch();
 				break;
 			case 6:
