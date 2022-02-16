@@ -81,22 +81,28 @@ void CList::Length(){
 	cout<<cnt;
 }//end of length
 void CList::Search(int x){
+	//Empty List
+	if(first==NULL){
+		cout<<"Empty List";
+		return;
+	}
 	CNode *tmp=first;
 	int flag=0;
-	while(tmp->data==x){
+	do{
 		if(tmp->data==x){
 			flag=1;
 			break;
 		}
 		tmp=tmp->next;
 	}
-	if(flag==1){
-		cout<<x<<" is found";
+	while(tmp!=first);
+	if(flag ==1){
+		cout<<x<<"is found";
 	}
 	else{
-		cout<<x<<" is not found";
+		cout<<x<<"is not found";
 	}
-}
+}//end of search
 /*4.Menu*/
 int main(){
 	CList c;
