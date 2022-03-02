@@ -103,7 +103,26 @@ void CQueue :: PeekRear()
 	
 	cout << "Element is at the rear is : " << A[rear];
 }//end of rear
-
+void CQueue :: Dequeue(int x){
+	if(Empty()){
+		cout<<"Array Underflow";
+		return;
+	}
+	int tmp=A[front];
+	if(front==rear){
+		front=-1;
+		rear=-1;
+	}
+	else{
+		if(front==MAX-1){
+			front=0;
+		}else{
+			front++;
+		}	
+	}
+	cout<<tmp;
+	cnt--;
+}//dequeue
 //4.Menu
 
 int main()
