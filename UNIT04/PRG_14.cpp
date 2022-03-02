@@ -1,17 +1,12 @@
-/* Name : Harsh Singh
+/* Name : Harsh Singh	
 	Roll No : 1262
 	Program : Circular Queues
 	Unit : 04
 */
-
 #include<iostream>
 #include<conio.h>
-
 #define MAX 4
-
 using namespace std;
-
-//1.Node Template
 //2.class Template
 class CQueue
 {
@@ -36,18 +31,18 @@ class CQueue
 			int Full();
 			int Empty();
 };//end of class
+
 //3.Functions
-void CQueue :: Enqueue(int x)
-{
+void CQueue :: Enqueue(int x){
 	if(Full())
 	{
 		cout << "Queue Overflow\n";
 		return;
 	}
-	if(Empty())
+	if(front==-1)
 	{
 		front++;
-	}
+	}	
 	if(rear == MAX-1)
 	{
 		rear = 0;
@@ -57,8 +52,44 @@ void CQueue :: Enqueue(int x)
 		rear++;
 	}
 	A[rear] = x;
-	cnt++;
+	cnt++;	
 }//end of enqueue
+void CQueue :: Dequeue(int x){
+	if(Empty()){
+		cout<<"Array Underflow";
+		return;
+	}
+	int tmp=A[front];
+	if(front==rear){
+		front=-1;
+		rear=-1;
+	}
+	else{
+		if(front==MAX-1){
+			front=0;
+		}else{
+			front++;
+		}	
+	}
+	cout<<tmp;
+	cnt--;
+}//dequeue
+void CQueue :: Display(){
+	if(Empty()){
+		cout<<"Array Underflow";
+		return;
+	}
+	j=front;
+	for(i=1;i<=cnt;i++){
+		cout<<A[j]<<" ";
+		if(j==MAX-1){
+			j=0
+		}
+		else{
+			j++;
+		}
+	}
+}//display
 int CQueue :: Full()
 {
 	if(cnt == MAX)
@@ -82,47 +113,9 @@ int CQueue :: Empty()
 	}
 }//end of empty
 
-void CQueue :: PeekFront()
-{
-	if(Empty())
-	{
-		cout << "Queue is Empty.";
-		return;
-	}
-	
-	cout << "Element at the front is : " << A[front];
-}//end of peekfront
 
-void CQueue :: PeekRear()
-{
-	if(Empty())
-	{
-		cout << "Queue is Empty.";
-		return;
-	}
-	
-	cout << "Element is at the rear is : " << A[rear];
-}//end of rear
-void CQueue :: Dequeue(int x){
-	if(Empty()){
-		cout<<"Array Underflow";
-		return;
-	}
-	int tmp=A[front];
-	if(front==rear){
-		front=-1;
-		rear=-1;
-	}
-	else{
-		if(front==MAX-1){
-			front=0;
-		}else{
-			front++;
-		}	
-	}
-	cout<<tmp;
-	cnt--;
-}//dequeue
+
+
 //4.Menu
 
 int main()
@@ -159,16 +152,16 @@ int main()
 				getch();
 				break;
 			case 3:
-				c.PeekFront();
+				//c.PeekFront();
 				getch();
 				break;
 			case 4:
-				c.PeekRear();
+				//c.PeekRear();
 				getch();
 				break;
 			case 5:
 				cout << "Displaying the Queue : ";
-				
+				//c.Display();
 				getch();
 				break;
 			case 6:
