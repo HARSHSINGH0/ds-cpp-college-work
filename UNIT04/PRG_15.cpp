@@ -1,7 +1,7 @@
 /* Name: Harsh Singh
    Roll no: 1262
    Unit:4
-   Program: Double Ended queue
+   Program: Double ended queue
    
 */
 #include<iostream>
@@ -125,7 +125,7 @@ void DQueue :: DequeueRear()
 		cout<<"Underflow!!";
 		return;
 	}
-	DQNode *tmp=front;
+	DQNode *tmp=rear;
 	if(front==rear)
 	{
 		front=NULL;
@@ -138,10 +138,41 @@ void DQueue :: DequeueRear()
 	}
 	cout<<"Rear element is dequeued!"<<endl;
 	delete tmp;
-	
-	
 }
+void DQueue :: PeekFront()
+{
+	if(Empty())
+	{
+		cout << "Empty Queue.\n";
+		return;
+	}
+	
+	cout << "Element in the Front is : " << front->data;
+	
+} //end of peekfront
 
+void DQueue :: PeekRear()
+{
+	if(Empty())
+	{
+		cout << "Empty Queue\n";
+		return;
+	}
+		
+	cout << "Element at rear is : " << rear->data;
+}//end of peekrear
+void DQueue :: Display(){
+	if(Empty()){
+		cout<<"Underflow";
+		return;
+	}
+	DQNode *tmp=front;
+	while(tmp!=NULL){
+		cout<<tmp->data<<"->";
+		tmp=tmp->right;
+	}
+	cout<<"Null";
+}
 /* Menu */
 int main()
 {
@@ -193,24 +224,22 @@ int main()
 				break;
 				
 			case 5:
-				cout<<"Option 5";
+				d.PeekFront();
 				getch();
 				break;
 				
 			case 6:
-				cout<<"Option 6";
+				d.PeekRear();
 				getch();
 				break;
 				
 			case 7:
-				cout<<"Option 7";
+				d.Display();
 				getch();
 				break;
 				
 			case 8:
-				cout<<"Option 8";
-				getch();
-				break;
+				exit(1);
 				
 			
 		}//end of switch
