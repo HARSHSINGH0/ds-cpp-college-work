@@ -1,7 +1,7 @@
 /* Name: Harsh Singh
    Roll no: 1262
    Unit:4
-   Program: Double ended queue
+   Program: Double Ended queue
    
 */
 #include<iostream>
