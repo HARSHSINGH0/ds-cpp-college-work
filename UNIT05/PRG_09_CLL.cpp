@@ -80,6 +80,75 @@ void CList::Length(){
 	while(tmp!=first);
 	cout<<cnt;
 }//end of length
+//Delete
+void CList :: Delete(int x)
+{
+	
+	// Step1: Empty List -RETURN
+	
+	if(first==NULL)
+	{
+		cout<< "Empty List " << endl;
+		return;
+	}
+	//Step2:  Search for x
+	
+	CNode *tmp = first;
+	CNode *prev =NULL;
+	int flag =0;
+	
+	do
+	{
+		if(tmp->data == x)
+		{
+			flag =1;
+			break;
+		}
+		
+		prev =tmp;
+		tmp = tmp->next;
+	}
+	while(tmp!=first);
+	
+	
+	
+	//Step 3: X not found - Return
+	if(flag==0)
+	{
+		cout<< x << "is not found ";
+		return;
+	}
+	
+	//Step 4: x is found
+	
+		//step 4a: Single Node Deletion
+		if(first==last)
+		{
+			first== NULL;
+			last = NULL;
+		}
+		
+		//step 4b: First Node Deletion
+		else if(tmp==first)
+		{
+			first =first->next;
+			last->next=first;
+		}
+		//step 4c: Last Node Deletion
+		else if(tmp==last)
+		{
+			last = prev;
+			last->next = first;
+		}
+		//step 4d: Any other node in the middle
+		else
+		{
+			prev->next = tmp->next;
+		}
+	//Step 5: Delete memory occupied by temp	
+	delete  tmp;
+	
+}//End of delete
 void CList::Search(int x){
 	//Empty List
 	if(first==NULL){
@@ -126,7 +195,9 @@ int main(){
 				getch();
 				break;
 			case 2:
-				//s.Delete(num);
+				cout<<"Enter a number to delete:";
+				cin>>num;
+				s.Delete(num);
 				getch();
 				break;
 			
